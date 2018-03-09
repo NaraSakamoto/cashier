@@ -1,4 +1,4 @@
-package com.cashier.controller;
+package com.cashier.ui;
 
 import com.cashier.controller.exception.ClientNotFoundException;
 import com.cashier.controller.repository.ClientRepository;
