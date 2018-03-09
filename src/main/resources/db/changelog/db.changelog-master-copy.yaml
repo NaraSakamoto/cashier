@@ -1,0 +1,132 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+        - createTable:
+            tableName: CLIENT
+            columns:
+              - column:
+                  name: CLIENT_ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: nara.sakamoto
+      changes:
+        - createSequence:
+            sequenceName: SEQ_BUYER
+  - changeSet:
+      id: 3
+      author: nara.sakamoto
+      changes:
+        - createTable:
+            tableName: BUYER
+            columns:
+              - column:
+                  name: BUYER_ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EMAIL
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CPF
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 4
+      author: nara.sakamoto
+      changes:
+        - createTable:
+            tableName: CARD
+            columns:
+              - column:
+                  name: CARD_ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NUMBER
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: HOLDER_NAME
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: EXPIRATION_DATE
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CVV
+                  type: INT
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 5
+      author: nara.sakamoto
+      changes:
+        - createTable:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: PAYMENT_ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: AMOUNT
+                  type: NUMERIC(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: TYPE
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: BUYER_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_payment_buyer
+                    references: BUYER(BUYER_ID)
+              - column:
+                  name: CARD_ID
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_payment_card
+                    references: CARD(CARD_ID)
+              - column:
+                  name: CLIENT_ID
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_payment_client
+                    references: CLIENT(CLIENT_ID)

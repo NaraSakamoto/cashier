@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+      - addColumn:
+          tableName: PAYMENT
+          columns:
+            - column:
+                name: STATUS
+                type: int
+                constraints:
+                  nullable: false

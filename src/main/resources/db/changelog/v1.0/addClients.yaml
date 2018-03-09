@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+      - insert:
+          columns:
+          - column:
+              name: NAME
+              type: varchar(255)
+              value: BROTHERS STORE
+          tableName: CLIENT
+      - insert:
+          columns:
+          - column:
+              name: NAME
+              type: varchar(255)
+              value: DIY CRAFT STORE
+          tableName: CLIENT

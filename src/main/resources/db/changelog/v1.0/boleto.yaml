@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+      - addColumn:
+          tableName: PAYMENT
+          columns:
+          - column:
+              name: BOLETO_NUMBER
+              type: BIGINT

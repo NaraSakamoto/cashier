@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - include:
+      file: client.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: buyer.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: card.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: payment.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: sequences.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: boleto.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: status.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: addClients.yaml
+      relativeToChangelogFile: true

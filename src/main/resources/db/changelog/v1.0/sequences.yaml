@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+        - createSequence:
+            sequenceName: SEQ_PAYMNT
+  - changeSet:
+      id: 2
+      author: nara.sakamoto
+      changes:
+        - createSequence:
+            sequenceName: SEQ_CARD
+  - changeSet:
+      id: 3
+      author: nara.sakamoto
+      changes:
+        - createSequence:
+            sequenceName: SEQ_CLIENT

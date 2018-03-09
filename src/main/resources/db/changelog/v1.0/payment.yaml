@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: nara.sakamoto
+      changes:
+        - createTable:
+            tableName: PAYMENT
+            columns:
+              - column:
+                  name: PAYMENT_ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: AMOUNT
+                  type: NUMERIC(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: TYPE
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: BUYER_ID
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_payment_buyer
+                    references: BUYER(BUYER_ID)
+              - column:
+                  name: CARD_ID
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_payment_card
+                    references: CARD(CARD_ID)
+              - column:
+                  name: CLIENT_ID
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_payment_client
+                    references: CLIENT(CLIENT_ID)
